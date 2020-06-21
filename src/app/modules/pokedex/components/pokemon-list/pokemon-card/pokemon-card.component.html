@@ -1,0 +1,15 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      <h3>{{pokemon.name}}</h3>
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div>
+      <img [src]="pokemon.image" />
+    </div>
+    <div class="tags-container">
+      <ng-container *ngFor="let type of pokemon.types"><span>{{type}}</span></ng-container>
+    </div>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,73 @@
+<div class="container">
+  <div>
+    <h3>Register Form</h3>
+    <label>Please enter all required information</label>
+  </div>
+  <form novalidate
+        [formGroup]="registerForm"
+        (ngSubmit)="register()">
+    <ion-item>
+      <ion-input type="text"
+                 placeholder="Name"
+                 formControlName="name"
+                 name="name"
+                 ngDefaultControl
+                 required="true"></ion-input>
+    </ion-item>
+    <p *ngIf="registerForm.get('name').hasError('required') && registerForm.controls['name'].dirty">This field is
+      required!!</p>
+    <ion-item>
+      <ion-input type="email"
+                 placeholder="Email"
+                 formControlName="email"
+                 name="email"
+                 ngDefaultControl
+                 required></ion-input>
+    </ion-item>
+    <p *ngIf="registerForm.get('email').hasError('required') && registerForm.controls['email'].dirty">This field is
+      required!!</p>
+    <p *ngIf="registerForm.get('email').hasError('pattern') && registerForm.controls['email'].dirty">
+      Please type a valid email</p>
+    <ion-item>
+      <ion-input type="password"
+                 placeholder="Password"
+                 formControlName="password"
+                 name="password"
+                 ngDefaultControl
+                 required></ion-input>
+    </ion-item>
+    <p *ngIf="registerForm.get('password').hasError('required') && registerForm.controls['password'].dirty">This field
+      is
+      required!!</p>
+    <p *ngIf="registerForm.get('password').hasError('pattern') && registerForm.controls['password'].dirty">
+      At least 8 letters, 2 capital letters, 1 number and 1 special character</p>
+    <ion-item>
+      <ion-input type="password"
+                 placeholder="Confirm Password"
+                 formControlName="confirmPassword"
+                 name="confirmPassword"
+                 ngDefaultControl
+                 required></ion-input>
+    </ion-item>
+    <p
+       *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.controls['confirmPassword'].dirty">
+      This field is
+      required!!</p>
+    <p
+       *ngIf="registerForm.get('confirmPassword').hasError('pattern') && registerForm.controls['confirmPassword'].dirty">
+      At least 8 letters, 2 capital letters, 1 number and 1 special character</p>
+    <p *ngIf="registerForm.hasError('dontMatch') && registerForm.controls['confirmPassword'].dirty">
+      Passwords don't match</p>
+
+    <div class="footer">
+      <ion-button type="button"
+                  (click)="cancel()">Cancel</ion-button>
+      <ion-button type="submit"
+                  [disabled]="!registerForm.valid">Register</ion-button>
+    </div>
+  </form>
+
+  <div class="image-container">
+    <img src="./../../../../../assets/images/pokemons.jpg" />
+  </div>
+</div>

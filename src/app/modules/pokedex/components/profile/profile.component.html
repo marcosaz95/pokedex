@@ -1,0 +1,48 @@
+<div class="container">
+  <form novalidate
+        [formGroup]="userForm"
+        (ngSubmit)="update()">
+    <ion-item>
+      <ion-input type="text"
+                 placeholder="Name"
+                 formControlName="name"
+                 name="name"
+                 ngDefaultControl
+                 required="true"></ion-input>
+    </ion-item>
+    <p *ngIf="userForm.get('name').hasError('required') && userForm.controls['name'].dirty">This field is
+      required!!</p>
+    <ion-item>
+      <ion-input type="email"
+                 placeholder="Email"
+                 formControlName="email"
+                 name="email"
+                 ngDefaultControl
+                 required></ion-input>
+    </ion-item>
+    <p *ngIf="userForm.get('email').hasError('required') && userForm.controls['email'].dirty">This field is
+      required!!</p>
+    <p *ngIf="userForm.get('email').hasError('pattern') && userForm.controls['email'].dirty">
+      Please type a valid email</p>
+    <ion-item>
+      <ion-input type="password"
+                 placeholder="Password"
+                 formControlName="password"
+                 name="password"
+                 ngDefaultControl></ion-input>
+      <ion-button slot="end"
+                  type="button"
+                  (click)="openPasswordForm()">
+        <ion-icon name="pencil-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <div class="footer">
+      <ion-button type="submit"
+                  [disabled]="!userForm.valid">Update</ion-button>
+    </div>
+  </form>
+
+  <div class="image-container">
+    <img src="./../../../../../assets/images/pokemons.jpg" />
+  </div>
+</div>

@@ -1,0 +1,55 @@
+.container {
+  overflow: auto;
+  max-height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  app-evolution-chain {
+    flex: 1 1 0%;
+  }
+
+  ion-card {
+    max-width: 500px;
+
+    ion-card-header {
+      text-align: center;
+    }
+
+    ion-card-content {
+      display: flex;
+      flex-direction: column;
+      place-content: center;
+      align-items: center;
+
+      .tags-container {
+        display: flex;
+        flex-direction: row;
+        place-content: center;
+        align-items: center;
+
+        span {
+          border-radius: 5px;
+          background-color: #dfe1e4;
+          padding: 1px 5px;
+          margin: 5px;
+        }
+      }
+
+      h3 {
+        margin: 14px;
+      }
+
+      .movements {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        span {
+          width: 150px;
+          min-width: 150px;
+        }
+      }
+    }
+  }
+}

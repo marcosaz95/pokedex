@@ -1,0 +1,15 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Moves</ion-title>
+
+    <ion-buttons slot="end"
+                 (click)="closeModal()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<div class="movements">
+  <ng-container *ngFor="let move of moves"><span>{{move}}</span> </ng-container>
+</div>

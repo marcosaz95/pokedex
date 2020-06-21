@@ -1,0 +1,29 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-searchbar color="light"
+                   debounce="500"
+                   enterkeyhint="search"
+                   (keyup.enter)="search(searchInput.value)"
+                   #searchInput></ion-searchbar>
+    <ion-buttons slot="start"
+                 (click)="goHome()"
+                 *ngIf="!isHomePage">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end"
+                 (click)="viewProfile()"
+                 class="margin-right">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end"
+                 (click)="signOut()">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

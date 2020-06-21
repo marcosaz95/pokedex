@@ -1,0 +1,17 @@
+<div class="container">
+  <h3>Chain evolution</h3>
+  <ng-container *ngFor="let pokemonChain of evolutionChain">
+    <ion-card [class.active]="pokemonChain.name === pokemon.name">
+      <ion-card-header>
+        <ion-card-title>
+          <h3>{{pokemonChain.name}}</h3>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div>
+          <img [src]="pokemonChain.image" />
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</div>

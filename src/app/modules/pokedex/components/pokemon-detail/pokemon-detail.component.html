@@ -1,0 +1,31 @@
+<div class="container">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Id: {{pokemon.id}}</ion-card-subtitle>
+      <ion-card-title>
+        <h3>{{pokemon.name}}</h3>
+      </ion-card-title>
+      <ion-card-subtitle>
+        <label>Height: </label><span>{{pokemon.height}}</span><br>
+        <label>Weight: </label><span>{{pokemon.weight}}</span></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <div>
+        <img [src]="pokemon.image" />
+      </div>
+      <div class="tags-container">
+        <ng-container *ngFor="let type of pokemon.types"><span>{{type}}</span></ng-container>
+      </div>
+      <h3>Moves</h3>
+      <div class="movements">
+        <ng-container *ngFor="let move of displayedMoves"><span>{{move}}</span> </ng-container>
+        <a *ngIf="pokemon.moves.length > 10"
+           (click)="seeMoreMovements()">See more</a>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <app-evolution-chain [pokemon]="pokemon">
+
+  </app-evolution-chain>
+</div>

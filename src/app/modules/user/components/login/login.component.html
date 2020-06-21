@@ -1,0 +1,29 @@
+<div class="container">
+  <app-header></app-header>
+  <form novalidate
+        [formGroup]="loginForm"
+        (ngSubmit)="signIn()">
+    <ion-item>
+      <ion-input type="text"
+                 placeholder="Email"
+                 formControlName="email"
+                 name="email"
+                 ngDefaultControl
+                 required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password"
+                 placeholder="Password"
+                 formControlName="password"
+                 name="password"
+                 ngDefaultControl
+                 required></ion-input>
+    </ion-item>
+    <ion-button type="submit"
+                [disabled]="!loginForm.valid">Sign In!</ion-button>
+    <span>Still not a Master Pokemon?, Register <a (click)="redirectRegisterForm()">Here!</a></span>
+  </form>
+  <div class="image-container">
+    <img src="./../../../../../assets/images/pikachu.jpg" />
+  </div>
+</div>

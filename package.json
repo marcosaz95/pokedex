@@ -11,6 +11,12 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always",
+    "printWidth": 140
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~9.1.6",

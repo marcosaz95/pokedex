@@ -1,0 +1,16 @@
+.container {
+  max-width: 500px;
+  h3 {
+    text-align: center;
+  }
+
+  ion-card-header,
+  ion-card-content {
+    padding: 0 16px;
+    text-align: center;
+  }
+
+  .active {
+    border: 1px solid green;
+  }
+}
