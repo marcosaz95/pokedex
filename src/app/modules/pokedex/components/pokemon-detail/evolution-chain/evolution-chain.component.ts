@@ -22,11 +22,14 @@ export class EvolutionChainComponent implements OnInit {
         this.getEvolutionChain(evolutionChain.chain);
       });
     });
-    // this._pokemon.getPokemonEvolution(this.pokemonId).subscribe((data: any) => {
-    //   console.log(data);
-    // });
   }
 
+  /**
+   *
+   * After the evolution change API is done, this function builds an array with the different APIs to get all pokemons info
+   * @param {*} evolutionChain
+   * @memberof EvolutionChainComponent
+   */
   getEvolutionChain(evolutionChain: any) {
     if (evolutionChain.evolves_to && evolutionChain.evolves_to.length) {
       this.promises.push(this._pokemon.getPokemonByName(evolutionChain.evolves_to[0].species.name));
@@ -36,11 +39,16 @@ export class EvolutionChainComponent implements OnInit {
     }
   }
 
+  /**
+   *
+   * calls all the pokemons for the chain
+   * @memberof EvolutionChainComponent
+   */
   getPokemons() {
     if (this.promises && this.promises.length) {
       forkJoin(this.promises).subscribe((pokemons: any) => {
         this.evolutionChain = pokemons.map((pok: any) => this._pokemon.getPokemonInformationFromResponse(pok));
-        console.log(this.evolutionChain);
+        this._pokemon.setIsLoading(false);
       });
     }
   }

@@ -4,6 +4,14 @@
             <app-pokemon-card [pokemon]="pokemon"
                               (click)="viewDetail(pokemon.id)"></app-pokemon-card>
         </ng-container>
+        <ng-container *ngIf="displayError">
+            <ion-item>
+                <ion-icon slot="end"
+                          name="alert-outline"></ion-icon>
+                <ion-label>No results were found, please try again</ion-label>
+            </ion-item>
+
+        </ng-container>
     </div>
     <ion-infinite-scroll threshold="100px"
                          (ionInfinite)="loadMore($event)">

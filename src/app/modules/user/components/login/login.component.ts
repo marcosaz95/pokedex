@@ -18,6 +18,11 @@ export class LoginComponent implements OnInit {
     this.buildForm();
   }
 
+  /**
+   *
+   * builds the form
+   * @memberof LoginComponent
+   */
   buildForm() {
     this.loginForm = this._fb.group({
       email: ['', Validators.required],
@@ -25,11 +30,21 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  /**
+   *
+   * redirects to register form
+   * @memberof LoginComponent
+   */
   redirectRegisterForm() {
-    console.log(this.loginForm);
     this._router.navigate(['/register']);
   }
 
+  /**
+   *
+   * calls a function to validate credentials and then redirects the user to home screen
+   * @returns
+   * @memberof LoginComponent
+   */
   signIn() {
     const { email, password } = this.loginForm.value;
     const validUser = this._user.validateSignInForm(email, password);
@@ -40,6 +55,11 @@ export class LoginComponent implements OnInit {
     this._router.navigate(['/pokedex']);
   }
 
+  /**
+   *
+   * In case something went wrong, a message will appear
+   * @memberof LoginComponent
+   */
   async presentSuccessAlert() {
     const alert = await this._alertController.create({
       header: 'Oops!!!',

@@ -30,6 +30,11 @@ export class ProfileComponent implements OnInit {
     this.buildForm();
   }
 
+  /**
+   *
+   * builds the form
+   * @memberof ProfileComponent
+   */
   buildForm() {
     const currentUser = this._user.profile;
     const { name, email } = this._user.profile;
@@ -40,6 +45,11 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   *
+   * updates the user information
+   * @memberof ProfileComponent
+   */
   update() {
     const { userId, password } = this._user.profile;
     const userToUpdate: IUser = { ...this.userForm.value, userId, password };
@@ -47,6 +57,11 @@ export class ProfileComponent implements OnInit {
     this.presentSuccessAlert();
   }
 
+  /**
+   *
+   * opnes password form in a modal
+   * @memberof ProfileComponent
+   */
   openPasswordForm() {
     this.openModal();
   }
@@ -62,6 +77,11 @@ export class ProfileComponent implements OnInit {
     return await modal.present();
   }
 
+  /**
+   *
+   * displayes a success alert after user is updated
+   * @memberof ProfileComponent
+   */
   async presentSuccessAlert() {
     const alert = await this._alertController.create({
       header: 'Success',

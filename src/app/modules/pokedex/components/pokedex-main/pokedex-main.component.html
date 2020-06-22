@@ -2,6 +2,7 @@
   <ion-toolbar>
     <ion-searchbar color="light"
                    debounce="500"
+                   placeholder="Name / Type"
                    enterkeyhint="search"
                    (keyup.enter)="search(searchInput.value)"
                    #searchInput></ion-searchbar>
@@ -21,6 +22,8 @@
     </ion-buttons>
 
   </ion-toolbar>
+  <ion-progress-bar type="indeterminate"
+                    *ngIf="isLoading"></ion-progress-bar>
 </ion-header>
 
 

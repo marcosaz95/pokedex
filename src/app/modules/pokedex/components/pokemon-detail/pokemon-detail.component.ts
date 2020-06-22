@@ -22,6 +22,7 @@ export class PokemonDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this._pokemon.setIsLoading(true);
     this._activatedRoute.paramMap.subscribe((params: ParamMap) => {
       if (params.get('id')) {
         this.pokemon = this._pokemon.getPokemonFromCurrentData(Number(params.get('id')));
@@ -52,8 +53,4 @@ export class PokemonDetailComponent implements OnInit {
     });
     return await modal.present();
   }
-
-  // getEvolution() {
-  //   this._pokemon.get
-  // }
 }

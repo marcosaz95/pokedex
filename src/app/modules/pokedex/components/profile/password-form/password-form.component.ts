@@ -27,6 +27,11 @@ export class PasswordFormComponent implements OnInit {
     this.buildForm();
   }
 
+  /**
+   *
+   * Builds the password form
+   * @memberof PasswordFormComponent
+   */
   buildForm() {
     this.passwordForm = this._fb.group(
       {
@@ -37,12 +42,22 @@ export class PasswordFormComponent implements OnInit {
     );
   }
 
+  /**
+   *
+   * manually closes the modal
+   * @memberof PasswordFormComponent
+   */
   closeModal() {
     this._modalController.dismiss({
       dismissed: true,
     });
   }
 
+  /**
+   *
+   * Updates the password
+   * @memberof PasswordFormComponent
+   */
   update() {
     const { name, email, userId } = this.user;
     const user = { ...this.passwordForm.value, name, email, userId };
@@ -50,6 +65,11 @@ export class PasswordFormComponent implements OnInit {
     this.presentSuccessAlert();
   }
 
+  /**
+   *
+   * displayes the success alert when the user was updated successfully
+   * @memberof PasswordFormComponent
+   */
   async presentSuccessAlert() {
     const alert = await this._alertController.create({
       header: 'Success',

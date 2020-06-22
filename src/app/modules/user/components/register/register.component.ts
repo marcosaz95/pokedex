@@ -27,6 +27,11 @@ export class RegisterComponent implements OnInit {
     this.buildForm();
   }
 
+  /**
+   *
+   * Builds the form
+   * @memberof RegisterComponent
+   */
   buildForm() {
     this.registerForm = this._fb.group(
       {
@@ -39,10 +44,20 @@ export class RegisterComponent implements OnInit {
     );
   }
 
+  /**
+   *
+   * Redirects to sign in page
+   * @memberof RegisterComponent
+   */
   cancel() {
     this._router.navigate(['']);
   }
 
+  /**
+   *
+   * Registers a new user
+   * @memberof RegisterComponent
+   */
   register() {
     const { name, email, password } = this.registerForm.value;
     const newUser: IUser = { name, email, password };
@@ -50,6 +65,11 @@ export class RegisterComponent implements OnInit {
     this.presentSuccessAlert();
   }
 
+  /**
+   *
+   * Displayes a message saying that user was created successfully
+   * @memberof RegisterComponent
+   */
   async presentSuccessAlert() {
     const alert = await this._alertController.create({
       header: 'Success',

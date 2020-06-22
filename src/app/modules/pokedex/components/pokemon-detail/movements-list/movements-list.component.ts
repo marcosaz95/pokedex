@@ -13,6 +13,11 @@ export class MovementsListComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   *
+   * Manually closes the modal
+   * @memberof MovementsListComponent
+   */
   closeModal() {
     this._modalController.dismiss({
       dismissed: true,
